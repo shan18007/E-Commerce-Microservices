@@ -1,0 +1,60 @@
+# Compiled classes and artifacts
+/target/
+*.jar
+*.war
+
+# Maven
+.m2/
+
+# Gradle
+.gradle/
+build/
+
+# Eclipse IDE files
+/.classpath
+/.project
+/.settings/
+
+# IntelliJ IDEA files
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# NetBeans IDE files
+/nbproject/
+/nbproject/private/
+*.sublime-workspace
+
+# Visual Studio Code files
+/.vscode/
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+
+# Generated files
+gen/
+
+# Other temporary files
+hs_err_pid*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Test and coverage reports
+reports/
+coverage/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Ignore IDE backup files
+*.bak
+
+# Ignore IDE caches and metadata
+.idea/
+.vscode/

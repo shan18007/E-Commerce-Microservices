@@ -1,0 +1,142 @@
+
+1) Roles : 
+	- Super Admin (Only one admin): Super admin
+	- Product Manager (can be many products managers): Manage the products
+	- user (Normal User) : end user who use our application for byuing products.
+	
+	Responsibilities:
+	
+	 Super Admin : 
+		- User Management -> Manage all the users.
+		- Dashboard -> active users.
+		- Profile -> user info ex address, mob no,
+		- Setting -> 1) Configuration  (Password policy, allowed attemps, password expiry)
+					 2) Email Settings
+		
+	 Product Manager
+		- products -> Manage Products.
+		- Report -> Product reports, Product wise report, sell wise report. Month wise Report.
+		- Price -> set price of products, add Voucher for product.
+		- Dashboard -> summary of products in short.
+		- Payments -> Bank details, Payments details product wise.
+		- Documents -> Gov. documents of product Manager. (ex. adhar, PAN, GSTN)
+		- Sales -> product sales, download invoice,
+		- Profile -> user info ex address, mob no,
+		
+	User
+		- Home -> Display All active products.
+		- Orders -> show ordered history, Tracking product.
+		- Profile -> user info ex address, mob no,
+		- Payments -> Bank details, Payments details product wise.
+		- Cart -> display products which is purchasing.
+		- Wishlist -> Display / Manage wish-list products for future purchase.
+		
+-------------------------------------------------------------------------------------------------------
+
+DB Design
+----------
+
+User
+	user_Id - PK
+	userName - unique
+	password 
+	role 
+	isActive
+	isDeleted
+	userInfoId - FK
+	
+userInfo
+	user_Info_Id - PK
+	user_Id - FK
+	email - unique
+	mobNumber
+	street
+	lane
+	state
+	country
+	pinCode
+	gender
+	profileUrl
+	
+
+Product
+	product_Id - PK
+	productName
+	quantity
+	price
+	description
+	category_Id -FK
+	isListedForSale 
+	payment_Id - FK
+	
+	
+Category
+	category_Id - PK
+	categoryName
+	
+Document
+	document_Id -PK
+	doc_name
+	dpc_path
+	doc_type
+	isVerified
+	isDeleted
+	
+Transaction
+	txn_Id - PK
+	type - cod/ upi /card
+	status
+	date
+	id
+	
+BankDetails
+	bankDetailsID - PK
+	bankName 
+	branch
+	IfSC
+	accountNumber
+	userID - FK
+	isVerified
+	isDeleted
+	isPrimary
+	
+Voucher
+	voucherId - PK
+	code
+	startDate
+	expiryDate
+	isActive
+	isDeleted
+	productId - FK
+	forAmount
+	
+Orders
+	orderId - PK
+	productId - FK
+	purchaseAmount 
+	orderDate
+	paymentType
+	status -  canceled, shipped, delivered, return, out for delivery
+	inCart - If true will show in cart.
+	quantity - purchased quantity.
+	deliveredDate
+	otp
+	isOtpVerified
+	remark - this field is for product manager.
+	
+Rating
+	ratingId - PK
+	rating
+	productId -FK
+	comment
+	userId - FK
+	date
+	
+Common fields for all table
+	createdBy
+	updatedBy
+	createdDate
+	updateDate
+	
+	
+	
